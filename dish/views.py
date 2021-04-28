@@ -4,10 +4,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from .models import Dish
-from .serializers import DishListSerializer
+from .serializers import DishListSerializer, DishCreateSerializer, DishSerializer
 
-from .models import Dish
-from .serializers import DishListSerializer
+
 
 
 class DishListAPIView(APIView):
@@ -24,7 +23,7 @@ class DishCreateAPIView(APIView):
         if serializer.is_valid():
             dish_object = serializer.save()
             return Response(data={'message': 'The dish has been added'})
-        return Response(data={'error': serializers.error})
+        return Response(data={'error': serializer.errors})
 
     
 
@@ -46,3 +45,18 @@ class DishUpdateAPIView(APIView):
             return Response(data=data)
 
         return Response(data=serializer.errors)
+
+class DishDetailAPIView(APIView):
+    def get(self,request, *args, **kwargs):
+        dish_object = Dish.objects.get(pk=kwargs.get('pk'))
+        serializer = DishSerializer(instance=dish_object)
+        return Response(data=serializer.data)
+     
+
+
+class DishDeleteAPIView(APIView):
+    def delete(self,request, *args, **kwargs):
+        dish = Dish.objects.get(pk=kwargs.get('pk'))
+        dish.delete()
+        return Response(data={'message': 'Dish was removed'})
+
