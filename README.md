@@ -9,7 +9,7 @@ Plovo is a API made for Delivery companies also including restaraunts and cafes.
 
 ## API Specification
 
-Для получения списка блюд необходимо отправить ```GET``` запрос на ```/dish/```:
+To view DISH LIST make ```GET``` request to this url: ```/dish/```:
 ```json
 [
     {
@@ -24,5 +24,5 @@ Plovo is a API made for Delivery companies also including restaraunts and cafes.
     },
 ] 
 ```
-Методы ``` POST, PUT, UPDATE, DELETE``` на ```/dish/``` вернут ошибку ```405```
+Following methods ``` POST, PUT, UPDATE, DELETE``` requested to this url: ```/dish/```  will reuturn following error: ```405``` .
 
