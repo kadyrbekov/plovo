@@ -24,5 +24,5 @@ To view DISH LIST make ```GET``` request to this url: ```/dish/```:
     },
 ] 
 ```
-Following methods ```diff  -POST, PUT, UPDATE, DELETE``` requested to this url: ```/dish/```  will reuturn following error: ```405``` .
+Following methods ```POST, PUT, UPDATE, DELETE``` requested to this url: ```/dish/```  will reuturn following error: ```405``` .
 
